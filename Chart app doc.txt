@@ -1,0 +1,4 @@
+1) The app needs internet connection to create Organization Chart. 
+2) After opening the app there will be three text fields where user has to Enter Employee name, Designation and Manager name.
+3) The input values from the user end will be added in array using loops.
+4) That array value will be displayed in the below text as Logs, and it will create Org Chart on top of the screen.

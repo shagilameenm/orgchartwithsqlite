@@ -1,0 +1,214 @@
+<html>
+<head>
+
+    <style>
+
+body {
+font-family: sans-serif;
+}
+form {
+border: 4px solid #f1f1f1;
+}
+input[type=text] {
+  width: 100%;
+  padding: 10px 10px;
+  margin: 20px 0px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+table	{
+ width: 100%;
+}
+button {
+  background-color: #5fcf80;
+  color: white;
+  padding: 14px 18px;
+  border: none;
+  width: 100%;
+}
+.topcontainer	{
+background-color:#637a91;
+}
+.topspan {
+ display:block;
+padding-top: 10px;
+padding-bottom: 10px;
+color: white;
+}
+.container {
+  padding:16px;
+}
+
+</style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript">
+ google.charts.load('current', {packages:["orgchart"]});
+
+
+	 //google.charts.setOnLoadCallback(drawChart);
+
+	 //  selectedNodeClass
+	// var name=empname;
+	 //var designation=empdesig;
+	 //var manager=empmanager;
+    var namearray=Array();
+    var designationarray=Array();
+    var manaarray=Array();
+    var i,nlen,text,nl=0;
+    var j,dlen,text,dl=0;
+    var k,mlen,text,ml=0;
+      var   namerow;
+        var desrow;
+        var manrow;
+
+function addNamesToArray(){
+
+
+namearray[nl]=document.getElementById("employee").value;
+     nl++;
+        console.log("namearray " + namearray );
+		nlen=namearray.length;
+  //  namerow=namearray[0];
+
+    text="<p>";
+         for (i=0;i<nlen;i++){
+        text += "<p >Name: " + namearray[i] + "</p>";
+
+		console.log("Name Row " + namearray[i] );
+
+           //  namerow=namearray[i];
+           //  namerow++;
+
+	//	for (var j in namearray[i]){
+		//	console.log(" " + namearray[i][j]);
+		//}
+	 }
+        text +="</p>";
+    namerow=text;
+document.getElementById("namearrayid").innerHTML = text;
+
+designationarray[dl]=document.getElementById("designation").value;
+     dl++;
+
+         console.log("designationarray " + designationarray );
+		dlen=designationarray.length;
+
+         text="<p>";
+         for (j=0;j<dlen;j++){
+
+        text += "<p >Designation: " + designationarray[j] + "</p>";
+		console.log("Designation row " + designationarray[j] );
+
+      //       desrow=designationarray[j];
+	 }
+
+        text +="</p>";
+    desrow=text;
+document.getElementById("desigarrayid").innerHTML = text;
+
+manaarray[ml]=document.getElementById("manager").value;
+     ml++;
+
+         console.log("manaarray " + manaarray );
+		mlen=manaarray.length;
+             text="<p>";
+         for (k=0;k<mlen;k++){
+        text += "<p >Manager: " + manaarray[k] + "</p>";
+
+		console.log("Manager Row " + manaarray[k] );
+           //  manrow=manaarray[k];
+	 }
+        text +="</p>";
+    manrow=text;
+document.getElementById("managarrayid").innerHTML = text;
+
+
+
+	  var data = new google.visualization.DataTable();
+
+		data.addColumn('string', 'Name');
+		data.addColumn('string', 'Manager');
+
+        // For each orgchart box, provide the name, manager.
+
+		data.addRows([
+		[{v:namearray[0], f:'<div style="color:red; font-style:italic">'+designationarray[0]+'</div>' +namearray[0]},manaarray[0]],
+        [{v:namearray[1], f:'<div style="color:red; font-style:italic">'+designationarray[1]+'</div>' +namearray[1]},manaarray[1]],
+		[{v:namearray[2], f:'<div style="color:red; font-style:italic">'+designationarray[2]+'</div>' +namearray[2]},manaarray[2]],
+		[{v:namearray[3], f:'<div style="color:red; font-style:italic">'+designationarray[3]+'</div>' +namearray[3]},manaarray[3]],
+		[{v:namearray[4], f:'<div style="color:red; font-style:italic">'+designationarray[4]+'</div>' +namearray[4]},manaarray[4]],
+		[{v:namearray[5], f:'<div style="color:red; font-style:italic">'+designationarray[5]+'</div>' +namearray[5]},manaarray[5]],
+		[{v:namearray[6], f:'<div style="color:red; font-style:italic">'+designationarray[6]+'</div>' +namearray[6]},manaarray[6]],
+		[{v:namearray[7], f:'<div style="color:red; font-style:italic">'+designationarray[7]+'</div>' +namearray[7]},manaarray[7]],
+		[{v:namearray[8], f:'<div style="color:red; font-style:italic">'+designationarray[8]+'</div>' +namearray[8]},manaarray[8]],
+		[{v:namearray[9], f:'<div style="color:red; font-style:italic">'+designationarray[9]+'</div>' +namearray[9]},manaarray[9]],
+		[{v:namearray[10], f:'<div style="color:red; font-style:italic">'+designationarray[10]+'</div>' +namearray[10]},manaarray[10]],
+		[{v:namearray[11], f:'<div style="color:red; font-style:italic">'+designationarray[11]+'</div>' +namearray[11]},manaarray[11]],
+		[{v:namearray[12], f:'<div style="color:red; font-style:italic">'+designationarray[12]+'</div>' +namearray[12]},manaarray[12]],
+		[{v:namearray[13], f:'<div style="color:red; font-style:italic">'+designationarray[13]+'</div>' +namearray[13]},manaarray[13]],
+		[{v:namearray[14], f:'<div style="color:red; font-style:italic">'+designationarray[14]+'</div>' +namearray[14]},manaarray[14]],
+		[{v:namearray[15], f:'<div style="color:red; font-style:italic">'+designationarray[15]+'</div>' +namearray[15]},manaarray[15]],
+		[{v:namearray[16], f:'<div style="color:red; font-style:italic">'+designationarray[16]+'</div>' +namearray[16]},manaarray[16]],
+		[{v:namearray[17], f:'<div style="color:red; font-style:italic">'+designationarray[17]+'</div>' +namearray[17]},manaarray[17]],
+		[{v:namearray[18], f:'<div style="color:red; font-style:italic">'+designationarray[18]+'</div>' +namearray[18]},manaarray[18]],
+		[{v:namearray[19], f:'<div style="color:red; font-style:italic">'+designationarray[19]+'</div>' +namearray[19]},manaarray[19]],
+		[{v:namearray[20], f:'<div style="color:red; font-style:italic">'+designationarray[20]+'</div>' +namearray[20]},manaarray[20]],
+		[{v:namearray[21], f:'<div style="color:red; font-style:italic">'+designationarray[21]+'</div>' +namearray[21]},manaarray[21]],
+		[{v:namearray[22], f:'<div style="color:red; font-style:italic">'+designationarray[22]+'</div>' +namearray[22]},manaarray[22]],
+		[{v:namearray[23], f:'<div style="color:red; font-style:italic">'+designationarray[23]+'</div>' +namearray[23]},manaarray[23]],
+		[{v:namearray[24], f:'<div style="color:red; font-style:italic">'+designationarray[24]+'</div>' +namearray[24]},manaarray[24]],
+		[{v:namearray[25], f:'<div style="color:red; font-style:italic">'+designationarray[25]+'</div>' +namearray[25]},manaarray[25]],
+		[{v:namearray[26], f:'<div style="color:red; font-style:italic">'+designationarray[26]+'</div>' +namearray[26]},manaarray[26]],
+		[{v:namearray[27], f:'<div style="color:red; font-style:italic">'+designationarray[27]+'</div>' +namearray[27]},manaarray[27]],
+		[{v:namearray[28], f:'<div style="color:red; font-style:italic">'+designationarray[28]+'</div>' +namearray[28]},manaarray[28]],
+		[{v:namearray[29], f:'<div style="color:red; font-style:italic">'+designationarray[29]+'</div>' +namearray[29]},manaarray[29]],
+		[{v:namearray[30], f:'<div style="color:red; font-style:italic">'+designationarray[30]+'</div>' +namearray[30]},manaarray[30]],
+		[{v:namearray[31], f:'<div style="color:red; font-style:italic">'+designationarray[31]+'</div>' +namearray[31]},manaarray[31]],
+		[{v:namearray[32], f:'<div style="color:red; font-style:italic">'+designationarray[32]+'</div>' +namearray[32]},manaarray[32]]
+
+
+        ]);
+        var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+        var draw=chart.draw(data,{'allowHtml':true});
+      }
+
+		//	 var mbtn = document.getElementById("btn");
+	 //mbtn.addEventListener("click", drawChart);
+	  //mbtn.addEventListener("click", chartLoop);
+   </script>
+</head>
+<body>
+<div id="chart_div"></div>
+<form>
+    <div class="topcontainer" >
+        <span class="topspan"><center>Organization Chart App</center></span>
+    </div>
+
+    <div class="container">
+        <table  cellpadding="6">
+            <tr>
+                <td><b>Employee name</b><input type="text" name="name"  id="employee"></td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Designation</b><input type="text" name="designation" id="designation"></td></tr>
+            <tr><td>
+                <b>Manager Name</b><input type="text" name="managername" id="manager"></td></tr>
+            <td><button type="button" id="btn" onclick="addNamesToArray();">Add </button></td>
+
+        </table>
+    </div>
+
+</form>
+
+
+<p id="namearrayid"></p>
+<p id="desigarrayid"></p>
+<p id="managarrayid"></p>
+
+<!-- <label for="totalemp">Enter Total Number of Employees:</label>
+<input type="number" id="totalemp" name="totalemp" max="2"><br><br>
+-->
+</body>
+</html>
