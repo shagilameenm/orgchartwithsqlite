@@ -56,7 +56,7 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.ViewHolder> {
                 upmanager=popupView.findViewById(R.id.upman);
                 editbt=popupView.findViewById(R.id.edbt);
 
-                PopupWindow popupWindow=new PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT,focusable);
+                PopupWindow popupWindow=new PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT, true);
                 popupWindow.showAtLocation(popupView, Gravity.CENTER,0,0);
 
                 editbt.setOnClickListener(new View.OnClickListener() {
@@ -85,10 +85,13 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.ViewHolder> {
                         db.close();
                     }
                 });
+                //Myadapter.notifyDataSetChanged();
+
                 deletebt.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         deleteData(dataArrayList.get(position).empname);
+                        //Myadapter.notifyDataSetChanged();
                     }
                 });
             }
@@ -101,9 +104,9 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.ViewHolder> {
         db= mydatabase.getWritableDatabase();
        int numberofrowdeleted= db.delete(Mydatabase.tablename,   "EmpName=? ", new String[]{emp});
         //  Log.d("//deleted: ",String.valueOf(username));
-          Log.d("//deleted: ",+numberofrowdeleted);
+          Log.d("//deleted: ", String.valueOf(numberofrowdeleted));
         db.close();
-        Toast.makeText(c,"Deleted"+numberofrowdeleted,Toast.LENGTH_SHORT).show();
+        Toast.makeText(c,"Deleted "+numberofrowdeleted+" Employee Data",Toast.LENGTH_SHORT).show();
     }
     @Override
     public int getItemCount() {

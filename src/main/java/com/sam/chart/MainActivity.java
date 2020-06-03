@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -16,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
   private   WebView webView;
   EditText name,designation,manager;
-  Button addbutton;
+  Button addbutton,checkbutton;
   Mydatabase mydatabase;
 
     @Override
@@ -29,11 +30,14 @@ public class MainActivity extends AppCompatActivity {
         designation=findViewById(R.id.designationet);
         manager=findViewById(R.id.manageret);
         addbutton=findViewById(R.id.addbt);
+        checkbutton=findViewById(R.id.checkbt);
         mydatabase=new Mydatabase(this);
 
         addbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //TextUtils.isEmpty((CharSequence) name);
+
                 savetoDB(name,designation,manager);
                 Intent recyclerintent=new Intent(MainActivity.this, Recycleractivity.class);
                 startActivity(recyclerintent);
@@ -41,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
         });
      //   String vname=name.getText().toString();
      //   startWeb();
+        checkbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent recyclerintent=new Intent(MainActivity.this, Recycleractivity.class);
+                startActivity(recyclerintent);
+            }
+        });
     }
     private void savetoDB(EditText name, EditText designation, EditText manager) {
         String emp = name.getText().toString();
@@ -48,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
         String managername = manager.getText().toString();
         mydatabase.addData(emp,des,managername);
     }
-
 
     private void startWeb() {
         WebSettings webSettings = webView.getSettings();

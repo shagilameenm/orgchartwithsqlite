@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/colorPrimary"
     android:id="@+id/linl">
 
     <LinearLayout
@@ -36,26 +36,30 @@
         <EditText
             android:id="@+id/upnameet"
             android:layout_width="match_parent"
-            android:layout_height="43dp"
+            android:layout_height="50dp"
             android:background="#FFFFFF"
             android:cursorVisible="true"
-            android:textSize="15dp"
+            android:textSize="20dp"
+            android:layout_marginLeft="3dp"
             android:visibility="gone" />
         <EditText
             android:id="@+id/updes"
             android:layout_width="match_parent"
-            android:layout_height="43dp"
+            android:layout_height="50dp"
             android:background="#FFFFFF"
             android:cursorVisible="true"
-            android:textSize="15dp"
+            android:textSize="20dp"
+            android:layout_marginLeft="3dp"
+
             android:visibility="gone" />
         <EditText
             android:id="@+id/upman"
             android:layout_width="match_parent"
-            android:layout_height="43dp"
+            android:layout_height="50dp"
             android:background="#FFFFFF"
             android:cursorVisible="true"
-            android:textSize="15dp"
+            android:textSize="20dp"
+            android:layout_marginLeft="5dp"
             android:visibility="gone" />
 
         <Button

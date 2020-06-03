@@ -28,18 +28,32 @@
         android:inputType="textPersonName"
         android:hint="Reporting Manager Name"/>
 
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
     <Button
         android:id="@+id/addbt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
+        android:layout_weight="1"
         android:text="Add" />
-
- <!--   <WebView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/web">
-    </WebView>-->
+    <Button
+        android:id="@+id/checkbt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="check Data" />
 
 </LinearLayout>
+
+</LinearLayout>
+
+
+
+    <!--   <WebView
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:id="@+id/web">
+       </WebView>-->
+
