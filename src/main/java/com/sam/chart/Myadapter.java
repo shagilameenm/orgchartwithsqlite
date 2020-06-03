@@ -2,6 +2,7 @@ package com.sam.chart;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -65,11 +65,9 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.ViewHolder> {
                         upempname.setText(String.valueOf(dataArrayList.get(position).empname));
                         updesig.setText(String.valueOf(dataArrayList.get(position).desig));
                         upmanager.setText(String.valueOf(dataArrayList.get(position).managername));
-
                         upempname.setVisibility(View.VISIBLE);
                         updesig.setVisibility(View.VISIBLE);
                         upmanager.setVisibility(View.VISIBLE);
-
                         updatebt.setVisibility(View.VISIBLE);
                     }
                 });
@@ -82,7 +80,7 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.ViewHolder> {
                         String newname = upempname.getText().toString();
                         String newdesig = updesig.getText().toString();
                         String newmanager = upmanager.getText().toString();
-                        db.execSQL("update " +Mydatabase.tablename+" set EmpName= '"+newname+"', Designation='"+newdesig+"',Manager='"+newmanager+"'  where Name='"+dataArrayList.get(position).empname+"'");
+                        db.execSQL("update " +Mydatabase.tablename+" set EmpName= '"+newname+"', Designation='"+newdesig+"',Manager='"+newmanager+"'  where EmpName='"+dataArrayList.get(position).empname+"'");
                         Toast.makeText(c,"Successfully Updated",Toast.LENGTH_SHORT).show();
                         db.close();
                     }
@@ -90,19 +88,20 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.ViewHolder> {
                 deletebt.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        deleteNames(dataArrayList.get(position).empname);
+                        deleteData(dataArrayList.get(position).empname);
                     }
                 });
             }
         });
     }
 
-    public void deleteNames(String emp) {
+    public void deleteData(String emp) {
         Mydatabase mydatabase ;
         mydatabase=new Mydatabase(c);
         db= mydatabase.getWritableDatabase();
-       int numberofrowdeleted= db.delete(Mydatabase.tablename,   "Name=? ", new String[]{emp});
+       int numberofrowdeleted= db.delete(Mydatabase.tablename,   "EmpName=? ", new String[]{emp});
         //  Log.d("//deleted: ",String.valueOf(username));
+          Log.d("//deleted: ",+numberofrowdeleted);
         db.close();
         Toast.makeText(c,"Deleted"+numberofrowdeleted,Toast.LENGTH_SHORT).show();
     }
